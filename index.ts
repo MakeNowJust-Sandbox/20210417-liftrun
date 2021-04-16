@@ -1,7 +1,7 @@
-const app = document.querySelector<HTMLCanvasElement>('#app');
+const app = document.querySelector<HTMLCanvasElement>('#app')!;
 const width = 1280;
 const height = 720;
-const ctx = app.getContext('2d');
+const ctx = app.getContext('2d')!;
 
 const line = (stroke: string, x1: number, y1: number, x2: number, y2: number): void => {
   ctx.strokeStyle = stroke;
@@ -125,12 +125,8 @@ const main = () => {
 };
 
 app.addEventListener('keydown', ev => {
-  if (ev.key === 'ArrowLeft') {
-    key = 'left';
-  }
-  if (ev.key === 'ArrowRight') {
-    key = 'right';
-  }
+  if (ev.key === 'ArrowLeft') key = 'left';
+  if (ev.key === 'ArrowRight') key = 'right';
 });
 
 app.addEventListener('keyup', () => {

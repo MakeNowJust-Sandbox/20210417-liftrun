@@ -1,6 +1,6 @@
-# RIFTRUN
+# LIFTRUN
 
-> A rolling rift game
+> A rolling lift game
 
 ## License
 

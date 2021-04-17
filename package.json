@@ -1,6 +1,7 @@
 {
+  "name": "liftrun",
   "scripts": {
-    "build": "parcel build index.html --public-url /20210417-riftrun/",
+    "build": "parcel build index.html --public-url /20210417-liftrun/",
     "start": "parcel serve index.html"
   },
   "devDependencies": {

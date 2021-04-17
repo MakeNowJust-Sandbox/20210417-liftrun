@@ -24,14 +24,14 @@ const text = (fill: string, x: number, y: number, text: string, font: string): v
   ctx.fillText(text,x, y);
 };
 
-const riftW = 50;
-const riftH = 30;
-const riftR = 200;
+const liftW = 50;
+const liftH = 30;
+const liftR = 200;
 
 const boxW = 10;
 const boxH = 10;
 
-const LOCALSTORAGE_KEY = 'riftrun-highscore';
+const LOCALSTORAGE_KEY = 'liftrun-highscore';
 let high = +(localStorage.getItem(LOCALSTORAGE_KEY) ?? 0);
 
 let started = false;
@@ -50,10 +50,10 @@ const main = () => {
 
   for (let i = 0; i < 4; i++) {
     const theta = (selfX + i * 90) / 180 * Math.PI;
-    const x = selfX + riftR * Math.cos(theta) - riftW / 2;
-    const y = 420 + riftR * Math.sin(theta) - riftH / 2;
-    line('#aaa', selfX - forceX, 420, x - forceX + riftW / 2, y + riftH / 2);
-    rect('#000', x - forceX, y, riftW, riftH);
+    const x = selfX + liftR * Math.cos(theta) - liftW / 2;
+    const y = 420 + liftR * Math.sin(theta) - liftH / 2;
+    line('#aaa', selfX - forceX, 420, x - forceX + liftW / 2, y + liftH / 2);
+    rect('#000', x - forceX, y, liftW, liftH);
   }
 
   let hit = false;
@@ -62,9 +62,9 @@ const main = () => {
     rect('#d33', box.x - forceX, box.y, boxW, boxH);
     for (let i = 0; i < 4; i++) {
       const theta = (selfX + i * 90) / 180 * Math.PI;
-      const x = selfX + riftR * Math.cos(theta) - riftW / 2;
-      const y = 420 + riftR * Math.sin(theta) - riftH / 2;
-      if (x <= box.x && box.x <= x + riftW && y <= box.y && box.y <= y + riftH) {
+      const x = selfX + liftR * Math.cos(theta) - liftW / 2;
+      const y = 420 + liftR * Math.sin(theta) - liftH / 2;
+      if (x <= box.x && box.x <= x + liftW && y <= box.y && box.y <= y + liftH) {
         hit = true;
       }
     }
@@ -96,7 +96,7 @@ const main = () => {
   text('#444', width - highText.length * 16, height - 24, highText, '24px sans-serif');
 
   if (!started) {
-    text('#000', 200, 200, 'RIFTRUN', '64px sans-serif');
+    text('#000', 200, 200, 'LIFTRUN', '64px sans-serif');
     text('#000', 200, 300, 'PRESS ← OR → KEY TO START', '64px sans-serif');
     selfX += Math.sqrt(t / 300 + 1) * 2;
     if (key) { // Start game.
@@ -120,7 +120,7 @@ const main = () => {
   }
 
   if (Math.random() <= 0.01 + Math.sqrt(t / 3000000)) {
-    boxes.push({x: forceX + width, y: (420 - riftR) + Math.random() * riftR * 2 - boxH /2});
+    boxes.push({x: forceX + width, y: (420 - liftR) + Math.random() * liftR * 2 - boxH /2});
   }
 };
 

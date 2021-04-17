@@ -55,6 +55,11 @@ const main = () => {
   line('#aaa', 0, 420, width, 420);
   rect('#aaa', selfX - 5 - forceX, 420 - 5, 10, 10);
 
+  for (let x = Math.floor(forceX / 100) * 100; x <= forceX + width; x += 100) {
+    line('#aaa', x - forceX, 420 - 30, x - forceX, 420 + 30);
+    text('#aaa', x - forceX + 5, 420 + 30, `${((x - 100) / 100).toFixed(0)} m`, '18px sans-serif');
+  }
+
   for (let i = 0; i < 4; i++) {
     const theta = (selfX + i * 90) / 180 * Math.PI;
     const x = selfX + liftR * Math.cos(theta) - liftW / 2;
@@ -66,7 +71,7 @@ const main = () => {
   let hit = false;
   for (let i = 0; i < boxes.length; i++) {
     const box = boxes[i];
-    rectFill('#000', box.x - forceX, box.y, boxW, boxH);
+    rectFill('#000', box.x - forceX - boxW/2, box.y - boxH/2, boxW, boxH);
     for (let i = 0; i < 4; i++) {
       const theta = (selfX + i * 90) / 180 * Math.PI;
       const x = selfX + liftR * Math.cos(theta) - liftW / 2;

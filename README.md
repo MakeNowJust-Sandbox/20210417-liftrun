@@ -2,6 +2,8 @@
 
 > A rolling lift game
 
+![demo](media/demo.gif)
+
 ## License
 
 MIT

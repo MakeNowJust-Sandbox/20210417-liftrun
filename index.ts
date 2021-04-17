@@ -130,6 +130,7 @@ const main = () => {
   if (key === 'right') {
     selfX += Math.sqrt(t / 300 + 1) * 2 * 2 * ((1.5 ** -t) + 1);
   }
+  selfX = Math.max(forceX, Math.min(forceX + width, selfX));
 
   if (Math.random() <= 0.01 + Math.sqrt(t / 3000000)) {
     boxes.push({x: forceX + width, y: (420 - liftR) + Math.random() * liftR * 2 - boxH /2});

@@ -18,6 +18,13 @@ const rect = (stroke: string, x: number, y: number, w: number, h: number): void 
   ctx.stroke();
 };
 
+const rectFill = (fill: string, x: number, y: number, w: number, h: number): void => {
+  ctx.fillStyle = fill;
+  ctx.beginPath();
+  ctx.rect(x, y, w, h);
+  ctx.fill();
+};
+
 const text = (fill: string, x: number, y: number, text: string, font: string): void => {
   ctx.font = font;
   ctx.fillStyle = fill;
@@ -59,7 +66,7 @@ const main = () => {
   let hit = false;
   for (let i = 0; i < boxes.length; i++) {
     const box = boxes[i];
-    rect('#d33', box.x - forceX, box.y, boxW, boxH);
+    rectFill('#000', box.x - forceX, box.y, boxW, boxH);
     for (let i = 0; i < 4; i++) {
       const theta = (selfX + i * 90) / 180 * Math.PI;
       const x = selfX + liftR * Math.cos(theta) - liftW / 2;
